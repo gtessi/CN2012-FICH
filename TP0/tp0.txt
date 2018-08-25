@@ -1,0 +1,161 @@
+Ejercicio 1
+
+help:		Muestra la ayuda de Scilab.
+apropos:	Sirve para obtener ayuda rápida sobre algún comando.
+//:			Comenta una linea.
+who:		Da un listado de las variables declaradas y constantes (columnas).
+whos:		Da un listado de las variables declaradas y constantes (listado).
+clear:		Desaloca una variable.
+close:		Cierra una ventana.
+size:		Proporciona el tamaño de un objeto.
+
+Ejercicio 2
+
+a) 5.^2-1/(2.^3)-sqrt(3.^2+(2*2).^2)
+b) sin(%pi/6)-atan(0.5)
+c) log(3+1/5)-%e.^2
+
+Ejercicio 3
+
+y=sin(2*x)/(x*(x+1))
+
+x = -4			-->		y = -0.0824465
+x = -%pi/8		-->		y = 2.964976
+x = sqrt(2)/4	-->		y = 1.3575015
+x = %pi/2		-->		y = 3.033D-17
+x = 9*%pi/5		-->		y = -0.0252723
+
+El dominio de la función son todos los reales, excepto el 0 y el -1, porque anulan al denominador.
+
+Ejercicio 4
+
+a) [1 2 3 -4]		-->		Vector fila.
+b) [1 2 3 -4]'		-->		Vector columna.
+c) -2.5:0.5:1		-->		Genera un vector fila de -2.5 a 1, con valores equiespaciados en 0.5.
+d) (-2.5:0.5:1)'	-->		Genera un vector columna de -2.5 a 1, con valores equiespaciados en 0.5.
+e) [-3:2:4]			-->		Genera un vector fila de -3 a 3, debido a que toma valores intermedios
+							menores o iguales a (4-(-3))/2.
+Ejercicio 5
+
+x = [-0.5 7 2]
+z = [2 -1 3]'
+
+a) 2*x				= [-1 14 4]
+b) y = x-1			= [-1.5 6 1]
+c) x.*y				= [0.75 42 2]
+d) x./y				= [0.3333333 1.1666667 2]
+e) y.^2				= [2.25 36 1]
+f) x'+5*z			= [9.5 2 17]'
+g) x+5*z			= No se puede sumar entre un vector fila y un vector columna.
+h) y-z'/3			= [-2.1666667 6.3333333 0]
+i) v = [x,y]		= [-0.5 7 2 -1.5 6 1]
+j) v(2:5)			= [7 2 -1.5 6]
+k) v(5:6)+(z(1:2))'	= [8 0]
+l) w = [x;y]		= [-0.5 7 2; -1.5 6 1]
+
+Ejercicio 6
+
+a) p = poly([2 3 5 7], 'x', 'coeff')	-->		Da como resultado un polinomio cúbico cuyos coeficientes
+												son 2, 3, 5 y 7.
+b) q = poly([2 3 5], 'x', 'roots')		-->		Da como resultado un polinomio cuyas raíces son 2, 3 y 5.
+c) roots(p)								-->		Devuelve las raices del polinomio p.
+d) c = coeff(q)							-->		Devuelve un vector c con los coeficientes de un polinomio
+												que tenga las raíces en q.
+
+Ejercicio 7
+
+a) A = [1 2 3; 4 5 6; 7 8 9]						-->		Matriz, cada ; es una nueva fila.
+b) B = A'											-->		Matriz transpuesta, cada ; es una nueva columna.
+c) C = [-3.2,5,7.4,6;4,17,-1.3,2.1;5.9,-6,0,4.5]	-->		Matriz, cada ; es una nueva fila.
+d) mat=C'											-->		Matriz C transpuesta.
+e) C(1:2,2:4)										-->		Toma la submatriz desde fila 1, columna 2 hasta
+															fila 2, columna 4.
+f) C(:,3)											-->		Toma todas las filas y columna 3.
+g) C(2,:)											-->		Toma fila 2 y todas las columnas.
+h) zeros(5,2)										-->		Arma una matriz de ceros de 5 filas y 2 columnas.
+i) ones(2,3)										-->		Arma una matriz de unos de 2 filas y 3 columnas.
+j) v = diag(A)										-->		Devuelve la diagonal de la matriz A en el vector v.
+k) D = diag(v,1)									-->		Arma una matriz con diagonal v, pero agrega una fila
+															al final y una columna al principio.
+l) E = diag(v,-1)									-->		Arma una matriz con diagonal v, pero agrega una fila
+															al principio y una columna al final. 
+m) F = diag(5*ones(3,1),0)							-->		 [5 0 0; 0 5 0; 0 0 5]
+      +diag(ones(2,1),-1)									+[0 0 0; 1 0 0; 0 1 0]
+	  +diag(-3*ones(2,1),1)									+[0 -3 0; 0 0 -3; 0 0 0]
+
+Ejercicio 8
+
+m = 5;						-->		Asigna 5 a la variable m.
+n = 4*m+1;					-->		Multiplica por 4 a m y le suma 1.
+x = linspace(0,1,n);		-->		Arma un vector de 0 a 1, con n subdivisiones.
+y = zeros(1,n);				-->		Arma un vector de n ceros.
+a = x(1:m+1);				-->		Toma los primeros m+1 valores del vector x.
+y(1:m+1) = sin(2*%pi*a);	-->		A los primeros m+1 valores de y, les asigna sin(2*%pi*a) según a.
+y(2*m+1:-1:m+2) = y(1:m);	-->		A los valores entre m+2 y 2*m+1, hacia atrás va asignando los valores de desde
+									1 hasta m.
+y(2*m+2:n) = -y(1:2*m);		-->		A los valores entre 2*m+2 y n, les asigna los opuestos de valores contenidos
+									desde 1 hasta 2*m.
+
+Ejercicio 9
+
+plot(x,y)
+
+x=(0:0.005:2)
+y=(((x+1)/(x.^2+x+1)).^6)*(cos(x)+3)
+plot(x,y)
+
+Ejercicio 10
+
+A = [1 4 5; 6 8 0; 7 3 4]
+b = [14 9 2]'
+
+a) x1 = inv(A)*b	-->		[-1.4133858 2.1850394 1.3346457]
+b) x2 = A\b			-->		[-1.4133858 2.1850394 1.3346457]
+
+Ejercicio 11
+
+n = 100;
+A = rand(n,n);
+x0 = rand(n,1);
+b = A*x0;
+x = A\b;
+
+x es distinto de x0, el sistema tiene más de una solución.
+
+[x1, y1] = polarCart(2,0.7854)		-->		x1 = 1.414211
+											y1 = 1.4142162
+
+[u, v] = polarCartGr(3, 30)			-->		u = 2.5980762
+											v = 1.5
+											
+valor = f([3; 4])					-->		valor = 25
+
+x = [5; 6], res = f(x)				-->		x = [5; 6]'
+											res = 61
+
+Ejercicio 12
+
+function [r] = Baskara(v)
+    // Controla que a sea distinto de 0
+    if (v(1) <> 0) then
+        // Calcula el discriminante
+        disc = v(2).^2-4*v(1)*v(3)
+        
+        // Calcula las raíces
+        x1 = (-v(2)+sqrt(disc))/2*v(1);
+        x2 = (-v(2)-sqrt(disc))/2*v(1);
+        
+        // Informa el tipo de raíz según el discriminante
+        if (disc > 0) then
+            mprintf('Las raíz son reales, distintas.\n\n')
+        elseif (disc == 0) then
+            mprintf('Las raíz son reales, iguales.\n\n')
+        else
+            mprintf('Las raíz son complejas conjugadas.\n\n')
+        end
+        
+        r = [x1 x2];
+    else
+        mprintf('No se puede aplicar la fórmula.\n\n')
+    end
+endfunction
